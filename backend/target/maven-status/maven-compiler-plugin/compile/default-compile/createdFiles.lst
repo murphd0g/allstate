@@ -1,0 +1,7 @@
+com/example/backend/repository/ReportDataRepository.class
+com/example/backend/config/WebConfig$1.class
+com/example/backend/config/WebConfig.class
+com/example/backend/BackendApplication.class
+com/example/backend/controller/ReportController.class
+com/example/backend/model/ReportData.class
+com/example/backend/spec/ReportDataSpecs.class
