@@ -66,13 +66,38 @@ function App() {
         label: 'Credit Score',
         data: data.map((d) => d.creditScore),
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        yAxisID: 'y',
       },
       {
         label: 'Tenure',
         data: data.map((d) => d.tenure),
         backgroundColor: 'rgba(153, 102, 255, 0.6)',
+        yAxisID: 'y1',
       },
     ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      title: { display: true, text: 'Credit Score vs Tenure' },
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        title: { display: true, text: 'Credit Score' },
+      },
+      y1: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        grid: { drawOnChartArea: false },
+        title: { display: true, text: 'Tenure' },
+      },
+    },
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -169,7 +194,7 @@ function App() {
         </select>
         <button onClick={fetchData}>Search</button>
       </div>
-      <Bar data={chartData} />
+      <Bar data={chartData} options={chartOptions} />
       <div style={{ margin: '16px 0', display: 'flex', gap: 8 }}>
         <input name="name" placeholder="Name" value={form.name || ''} onChange={handleFormInput} />
         <input name="phoneNumber" placeholder="Phone Number" value={form.phoneNumber || ''} onChange={handleFormInput} />
